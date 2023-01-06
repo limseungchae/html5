@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>테이블 관련 태그</title>
+    <style>/* embeded css style*/
+        table { border: 1px solid black; width: 950px;
+                outline-offset: -1px }
+        th, td { border: 1px solid black; padding: 10px }
+        tr:nth-child(even) { background: aliceblue }
+        tr:nth-child(odd) { background: aquamarine }
+        tr:first-child { background: beige }
+
+        tr { height: 35px }
+        table:nth-of-type(2) { width: 600px }
+        /* 복잡한 표2에 대한 스타일 - 너비지정 */
+        table:nth-of-type(5) { width: 850px }
+        table:nth-of-type(5) th { width: 141px }
+        table:nth-of-type(5) td { width: 141px }
+
+        /* 복잡한 표2 안쪽 테이블에 대한 스타일 - 너비지정 */
+        table:nth-of-type(5) table th { width: 121px }
+        table:nth-of-type(5) table td { width: 121px }
+    </style>
+</head>
+<body>
+    <h1>테이블 관련 태그</h1>
+    <h2>개요</h2>
+    <p>여러 종류의 데이터를 일목요연하게 2차원형태의 표로
+        나타내기 위해 사용하는 요소</p>
+    <p>table태그로 테이블 시작을, tr태그로 테이블의 행을,
+        th태그로 테이블의 제모을, td태크로 테이블의 본문을 나타냄</p>
+    <p>테이블의 디자인 관련 속성은 css를 이용
+        (windth, height, padding, border-collapse)</p>
+
+    <h3>사원employees 테이블</h3>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>사원번호</th>
+            <th>이름</th>
+            <th>성</th>
+            <th>이메일</th>
+            <th>전화번호</th>
+            <th>입사일</th>
+            <th>직책</th>
+            <th>연봉</th>
+            <th>수당</th>
+            <th>상사번호</th>
+            <th>부서번호</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>steven</td>
+            <td>king</td>
+            <td>sking</td>
+            <td>123.4567.6789</td>
+            <td>2003-06-17</td>
+            <td>AD_PRES</td>
+            <td>24000</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>90;</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>steven</td>
+            <td>king</td>
+            <td>sking</td>
+            <td>123.4567.6789</td>
+            <td>2003-06-17</td>
+            <td>AD_PRES</td>
+            <td>24000</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>90;</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>steven</td>
+            <td>king</td>
+            <td>sking</td>
+            <td>123.4567.6789</td>
+            <td>2003-06-17</td>
+            <td>AD_PRES</td>
+            <td>24000</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>90;</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>steven</td>
+            <td>king</td>
+            <td>sking</td>
+            <td>123.4567.6789</td>
+            <td>2003-06-17</td>
+            <td>AD_PRES</td>
+            <td>24000</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>90;</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>steven</td>
+            <td>king</td>
+            <td>sking</td>
+            <td>123.4567.6789</td>
+            <td>2003-06-17</td>
+            <td>AD_PRES</td>
+            <td>24000</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>90;</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>steven</td>
+            <td>king</td>
+            <td>sking</td>
+            <td>123.4567.6789</td>
+            <td>2003-06-17</td>
+            <td>AD_PRES</td>
+            <td>24000</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>90;</td>
+        </tr>
+    </table>
+
+    <h2>복잡한 표 만들기</h2>
+    <p>복잡한 형태의 테이블을 작성하려면
+        colspan/rowspan 속성을 적절히 사용하면 됨</p>
+    <p>colspan은 여러 열을 합쳐 하나의 열로 만드는 것이고
+        rowspan은 여러 행을 합쳐 하나의 행으로 만드는 것</p>
+    <p>더 복잡한 표를 만들기 위해 표안에 표를 포함시킬수도 있음 (비추)</p>
+
+    <h3>복잡한 표</h3>
+    <img src="img/table_span.jpg"
+         width="20%" height="20%">
+
+    <table>
+        <tr><td colspan="5">1</td>
+            <!--tb>2</tb><tb>3</tb><tb>4</tb><tb>5</tb--></tr>
+        <tr><td rowspan="2">6</td>
+            <td rowspan="2">7</td>
+            <td rowspan="2">8</td>
+            <td colspan="2" rowspan="2">9</td>
+            <!--<tb>10</tb>--></tr>
+        <tr><!--<tb>11</tb>-->
+            <!--<tb>12</tb>-->
+            <!--<tb>13</tb>-->
+            <!--<tb>14</tb>-->
+            <!--<tb>15</tb--></tr>
+        <tr><td colspan="2">16</td>
+            <!--<tb>17</tb>-->
+            <td colspan="3">18</td>
+            <!--<tb>19</tb><tb>20</tb>--></tr>
+        <tr><td colspan="3">21</td>
+            <!--<tb>22</tb><tb>23</tb>-->
+            <td colspan="2">24</td>
+            <!--<tb>25</tb--></tr>
+    </table>
+
+    <h2>테이블 너비 지정</h2>
+    <p>테이블 요소의 크기를 지정하는 단위는 px, %임</p>
+    <p>크기를 px로 지정하는 경우, 고정크기로 설정되어
+        브라우저의 크기에 상관없이 테이블의 크기는 변화없음</p>
+    <p>크기를 %로 지정하는 경우, 가변크기로 설정되어
+        브라우저의 크기에 따라 테이블의 크기는 변함</p>
+
+    <table style="width: 750px; outline: 1px solid red">
+        <tr><td>테이블1 (750 px)</td></tr>
+    </table>
+
+    <table style="width: 45%; outline: 1px solid blue">
+        <tr><td>테이블2 (45%)</td></tr>
+    </table>
+
+    <h3>복잡한 표</h3>
+    <table>
+            <tr><th>훈련과정</th>
+                <td colspan="2">AWS 클라우드기반 자반&amp;스프링&amp;<br>
+                    리엑트 풀스택 개발자 양성</td>
+                <th>훈련기간</th>
+                 <td colspan="2">2022-12-19 ~ 2023-06-09</td></tr>
+
+            <tr><th>평가일시</th><td>2023년 01월 04일</td>
+                <th>훈련생</th><td>&nbsp;&nbsp;&nbsp;&nbsp;(인)</td>
+                <th>훈련교사</th><td>홍 길동(인)</td></tr>
+
+            <tr><td colspan="6" style="padding: 0">
+                <table style="outline: 0px solid black;
+                                margin: -2px">
+                    <tr><th colspan="2" style="width: 242px">교과목명</th>
+                        <th>평가방법</th>
+                        <th>배점</th>
+                        <th>점수</th>
+                        <th>총점</th>
+                        <th>성취수준</th></tr>
+
+                    <tr><th rowspan="2" colspan="2">데이터베이스</th>
+                        <td>서술형/선택형</td>
+                        <td>30</td>
+                        <td>&nbsp;</td>
+                        <td rowspan="2">&nbsp;</td>
+                        <td rowspan="2">&nbsp;</td></tr>
+
+                    <tr><td>포트폴리오</td>
+                        <td>70</td>
+                        <td>&nbsp;</td></tr>
+                </table>
+            </td></tr>
+
+
+            <tr><th>성취수준 환산</th>
+                <th>매우우수(5수준)</th>
+                <th>우수(4수준)</th>
+                <th>보토(3수준)</th>
+                <th>미흡(2수준)</th>
+                <th>매우미흡(1수준)</th></tr>
+
+            <tr><th>성취기준</th>
+                <td>90~100점</td>
+                <td>80~89점</td>
+                <td>70~79점</td>
+                <td>60~69점</td>
+                <td>60점미만</td></tr>
+
+    </table>
+
+
+
+</body>
+</html>
