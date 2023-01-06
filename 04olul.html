@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>목록관련 태그</title>
+</head>
+<body>
+    <h1>목록관련 태그</h1>
+    <h2>개요</h2>
+    <p>깔끔한 정보전달을 위해 여러 요소들을
+        일렬로 나열한 명단이나 목록을 의미</p>
+    <p>html에서는 목록을 표현하기 위해
+        순서없는 목록, 순서있는 목록, 정의 목록등을 지원함</p>
+
+    <h2>순서없는unordered 목록</h2>
+    <p>명단의 요소를 기호로 나타내는 목록의 형태</p>
+    <p>ul, li태그등을 이용해서 표현</p>
+    <p>목록에 사용가능한 기호는 circle,square,disc등이 있음</p>
+
+    <h3>내가 좋아하는 점심메뉴</h3>
+
+    <ul style="list-style-type: circle">
+      <li>라면</li>
+      <li>돈까스</li>
+      <li>제육볶음</li>
+      <li>소불고기뚝배기</li>
+      <li>민트초코</li>
+    </ul>
+
+    <ul style="list-style-type: square">
+      <li>라면</li>
+      <li>돈까스</li>
+      <li>제육볶음</li>
+      <li>소불고기뚝배기</li>
+      <li>민트초코</li>
+    </ul>
+
+    <ul style="list-style-type: disc">
+      <li>라면</li>
+      <li>돈까스</li>
+      <li>제육볶음</li>
+      <li>소불고기뚝배기</li>
+      <li>민트초코</li>
+    </ul>
+
+    <h2>순서있는ordered 목록</h2>
+     <p>명단의 요소를 기호로 나타내는 목록의 형태</p>
+     <p>ol, li태그등을 이용해서 표현</p>
+     <p>목록에 사용가능한 기호는 decimal, alpha, roman 등이 있음</p>
+
+      <h3>내가 좋아하는 점심메뉴</h3>
+      <ol style="list-style-type: decimal">
+        <li>라면</li>
+        <li>돈까스</li>
+        <li>제육볶음</li>
+        <li>소불고기뚝배기</li>
+        <li>민트초코</li>
+      </ol>
+
+
+      <ol style="list-style-type: lower-alpha">
+        <li>라면</li>
+        <li>돈까스</li>
+        <li>제육볶음</li>
+        <li>소불고기뚝배기</li>
+        <li>민트초코</li>
+      </ol>
+
+    <!-- 한글 글머리기호 : hangul, -moz-hangul -->
+    <!-- 히라가나 글머리기호 : hiragana, katakana -->
+     <ol style="list-style-type: hangul">
+       <li>라면</li>
+       <li>돈까스</li>
+       <li>제육볶음</li>
+       <li>소불고기뚝배기</li>
+       <li>민트초코</li>
+     </ol>
+
+
+    <h2>정의definition 목록</h2>
+    <p>용어와 그 용어에 대한 해설을 모아놓은 목록</p>
+    <p>dl태그로 목록의 시작을, dt태그로 용어의 이름을,
+        dd태그로 해당 용어에 대한 설명을 작성</p>
+
+    <h3>웹표준 용어</h3>
+    <dl>
+      <dt>HTML</dt>
+      <dd>웹 사이트를 구성하는 웹 문서 작성에
+            사용하는 마크업 언어</dd>
+
+      <dt>CSS</dt>
+      <dd>html로 작성된 문서를 시각적으로 꾸밀때 사용</dd>
+
+      <dt>Javascript</dt>
+      <dd>html에 사용하는 객체기반 스크립트 프로그래밍 언어</dd>
+    </dl>
+
+    <h2>목록 중첩nested하기</h2>
+    <p>몰록을 구성하는 요소들을 구조화structured된
+        정보형태로 나타낼 때 주로 사용</p>
+    <p>이런 경우 목록 속에 또 다른 목록을 포함시킴</p>
+        (ul->ul, ul->ol, ol->ol, ol->ul)
+
+    <h3>내가 좋아하는 점심메뉴</h3>
+    <ul>
+        <li>분식
+       <ul>
+         <li>면류
+              <ul>
+                 <li>라면</li>
+                 <li>우동</li>
+
+         </ul>
+         <li>김밥</li>
+         <li>떡볶이</li>
+         </ul>
+
+        <li>한식
+          <ul>
+            <li>비빔밥</li>
+            <li>뚝배기불고기</li>
+
+          </ul>
+
+        <li>양식
+      <ul>
+            <li>돈까스</li>
+             <li>오므라이스</li>
+      </ul>
+
+    </ul>
+
+    <h2>네비게이션 구조 작성시 목록 사용</h2>
+    <p>웹 페이지의 gmb, lnb, snb, fnb 등을 만들때 사용</p>
+
+    <h2>네이버 뉴스 gnb</h2>
+
+    <ul>
+        <li>언론사별</li>
+        <li>정치</li>
+        <li>경제</li>
+        <li>사회</li>
+        <li>생활/문화</li>
+        <li>IT/과학</li>
+        <li>세계</li>
+        <li>랭킹</li>
+        <li>신문보기</li>
+        <li>오피니언</li>
+        <li>TV</li>
+        <li>팩트체크</li>
+    </ul>
+
+
+
+</body>
+</html>
