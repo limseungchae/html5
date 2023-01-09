@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 관련태그</title>
+</head>
+<body>
+    <h1>이미지 관련 태그</h1>
+    <h2>개요</h2>
+    <p>2차원 평면 위에 그려진 시각적 요소를 의미</p>
+    <p>html에 주로 사용되는 이미지의 종류는 jpg, gif, png등이 있음</p>
+    <ul>
+        <li>jpg: 적은 용량으로 섬세한 색상과 명암 표현,
+        1400만 색상을 사용해서 사진같은 이미지 구현에 주로 사용</li>
+        <li>gif: 256 색상만 지원하기 때문 주로 아이콘 같은 단색계열의
+        이미지 표현에 사용, 단, 이미지의 배경을 투명으로 만들거나
+        여러개의 이미지를 합쳐 애니메이션처럼 만들 수 있음</li>
+        <li>png: jpg와 gif의 장점을 따서 만든 이미지 형식,
+        섬세한 이미지 표현과, 투명 이미지 작성에 주로 사용,
+        jpg와 gif의 저작권 주장에 반발해서 오픈소스형태로 제작됨</li>
+    </ul>
+
+    <h2>이미지 나타내기</h2>
+    <P>img 태그를 이용해서 html에 이미지를 삽입할 수 있음</P>
+    <p>src속성을 이용해서 삽입하려는 이미지의 경로와 파일을 지정</p>
+    <p>html에 삽입할 이미지들은 보통 img 디렉토리에 저장해 둠</p>
+    <p>한편, flaticon.com, pixabay.com 등의 무료 이미지 제공
+        사이트를 이용하면 다양한 이미지들을 손쉽게 사용할 수 있음</p>
+
+    <img src="img/meadow.jpg">
+    <hr>
+    <img src="img/wallpaper.jpg">
+    <hr>
+    <img src="img/river.jpg">
+    <hr>
+    <table>
+        <tr>
+            <td><img src="img/meadow.jpg"></td>
+            <td><img src="img/wallpaper.jpg"></td>
+            <td><img src="img/river.jpg"></td>
+        </tr>
+    </table>
+
+    <p>어떤 이유로 인해 지정한 이미지를 웹브라우저에
+        띄우지 못하는 경우 alt속성으로 이미지를
+        대체할 텍스트를 지정할 수 있음</p>
+    <img src="img/river.jpg" title="흐르는 강이 있는 사진"
+         style="width: 640px; height: 427px;
+            display: block; border: 1px solid lightgrey"
+         alt="흐르는 강이 있는 사진">
+
+    <h2>움직이는 이미지</h2>
+    <img src="img/akuma-ragingstorm.gif">
+    <img src="img/tung-super3.gif">
+
+    <h2>이미지에 링크 생성</h2>
+    <p>이미지를 a 태그로 둘러싸면
+        이미지 클릭시 지정한 웹사이트/페이지로 연결할 수 있음</p>
+    <a href="http://movie.daum.net">영화사이트로 이동</a>
+    <a href="http://gamemol.co.kr">게임 판매 사이트로 이동</a>
+    <a href="http://kyobobok.co.kr">도서 구매 사이트로 이동</a>
+    <hr>
+    <a href="http://movie.daum.net">
+        <img src="img/movie.png" alt="영화 사이트로 이동"
+         title="영화 사이트로 이동" width="5%"
+    </a>
+
+    <a href="http://gamemol.co.kr">
+        <img src="img/game.png" alt="게임 판매 사이트로 이동"
+             title="게임 판매 사이트로 이동" width="5%"
+    </a>
+
+    <a href="http://kyobobok.co.kr">
+        <img src="img/book.png" alt="도서 구매 사이트로 이동"
+             title="도서 구매 사이트로 이동" width="5%"
+    </a>
+
+</body>
+</html>
