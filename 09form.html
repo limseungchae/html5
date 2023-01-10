@@ -1,244 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>폼 관련 태그</title>
     <style>
         label { font-weight: bold }
-        input:invalid { border-color:red }
+        input:invalid { border-color: red }
     </style>
 </head>
-</title>
 <body>
-    <h1>폼 관련 태그</h1>
-    <h2>개요</h2>
-    <p>html에서 사용자의 정보를 입력받아
-        서버로 전송하려면 form 요소를 사용해야 함</p>
-    <p>form 태그를 사용해서
-        입력받은 데이터를 서버로 어떻게 보낼것인지 (method),
-        전송한 데이터의 유형은 무엇인지 (enctype),
-        전송한 데이터는 서버에서 누가 처리할 지(handler)등을
-        지정해야 함</p>
-
-    <h2>입력받은 데이터 서버로 보내기</h2>
-    <ul>
+<h1>폼 관련 태그</h1>
+<h2>개요</h2>
+<p>html에서 사용자의 정보를 입력받아
+    서버로 전송하려면 form 요소를 사용해야 함</p>
+<p>form 태그를 사용해서
+    입력받은 데이터를 서버로 어떻게 보낼것인지 (method),
+    전송할 데이터의 유형은 무엇인지 (enctype),
+    전송된 데이터는 서버에서 누가 처리할 지 (action)등을
+    지정해야 함</p>
+<h2>입력받은 데이터 서버로 보내기</h2>
+<ul>
     <li>get방식은 url에 질의문자열querystring 형태로
         데이터를 작성해서 전송함. 따라서, 입력한 데이터가 그대로 노출.
         또한, 전송할 수 있는 데이터의 크기가 제한적임. 중요도가 낮은
-        정보를 입력 폼없이 임의로 전달시 주로 사용,</li>
-
-    </li>post방식은 데이터를 http header에 별도로 작성해서 전송함.
+        정보를 입력 폼없이 임의로 전달시 주로 사용</li>
+    <li>post방식은 데이터를 http header에 별도로 작성해서 전송함.
         따라서, 데이터가 외부로 보이지 않으며,
         전송할 수 있는 데이터의 크기가 무제한.
         또한, 텍스트와 바이너리를 같이 보낼수 있어서 보안성과 활용성이 좋음</li>
-    </ul>
-
-    <form method="get">
-        <div><label for="uid">아이디</label>
-            <input type="text" name="userid" id="uid"></div>
-
-        <div><label for="pwd">비밀번호</label>
-            <input type="password" name="passwd" id="pwd"></div>
-
-        <div><button type="submit">로그인</button></div>
-    </form>
-    <hr>
-        <a href="login.spring?userid=abc123&passwd=987xyz">로그인하기</a>
-
-    <hr>
-    <form method="post" >
-        <div><label for="uid2">아이디</label>
-            <input type="text" name="userid" id="uid2"></div>
-
-        <div><label for="pwd2">비밀번호</label>
-            <input type="password" name="passwd" id="pwd2"></div>
-
-        <div><button type="submit">로그인</button></div>
-    </form>
-
-    <h2>질의문자열querystring</h2>
-    <p>질의문자열은 클라이언트가 서버로 정보를 요청시
+</ul>
+<form method="get">
+    <div><label for="uid">아이디</label>
+        <input type="text" name="userid" id="uid"></div>
+    <div><label for="pwd">비밀번호</label>
+        <input type="password" name="passwd" id="pwd"></div>
+    <div><button type="submit">로그인</button></div>
+</form>
+<hr>
+<a href="login.spring?userid=abc123&passwd=987xyz">로그인하기</a>
+<hr>
+<form method="post">
+    <div><label for="uid2">아이디</label>
+        <input type="text" name="userid" id="uid2"></div>
+    <div><label for="pwd2">비밀번호</label>
+        <input type="password" name="passwd" id="pwd2"></div>
+    <div><button type="submit">로그인</button></div>
+</form>
+<h2>질의문자열querystring</h2>
+<p>클라이언트가 서버로 정보를 요청시
     정보전달 양식에 의해 작성된 문자열을 의미.</p>
-    <p>질의문자열의 시작은 ?로, 전달하려는 데이터는 키와 값의 형태로 작성하며,
-    각각의 정보는 &로 연결함.</p>
-    <p>영문자,숫자,일부특수문자는그대로 전송되지만,
+<p>질의문자열의 시작은 ?로, 전달하려는 데이터는 키와 값의 형태로 작성하며,
+    각각의 정보는 &로 연결함</p>
+<p>영문자,숫자,일부특수문자는 그대로 전송되지만,
     그외 나머지는 %와 16진수코드로 인코딩된 문자로 변환되어 전송됨
     (예: 수지는 %EC%88%98%EC%A7%80로 인코딩됨 - urlencoder.org)</p>
-
-    <img src="uri/uri.png" width="75%">
-    <img src="uri/url.jpg" width="75%">
-
-    <h2>전송데이터 유형</h2>
-    <p>enctype 속성으로 전송 데이터의 유형을 지정할 수 있음</p>
-    <p>텍스트 데이터 전송시 enctype은 생략가능</p>
-    <p>텍스트와 바이너리 데이터 전송시 multipart/form-data로 설정</p>
-
-    <h2>데이터 처리 주체(handler) 지정</h2>
-    <p>action속성에는 전송된 데이터들을 서버의 어떤 프로그램이
-            맡아 처리할 것인지 지정</p>
-
-    <form method="post" action="login.do">
-        <div><label for="uid3">아이디</label>
-            <input type="text" name="userid" id="uid3"></div>
-
-        <div><label for="pwd3">비밀번호</label>
-            <input type="password" name="passwd" id="pwd3"></div>
-
-        <div><button type="submit">로그인</button></div>
-    </form>
-
-    <h2>폼 요소 그룹화 태그</h2>
-    <p>fieldset폼을 구성하는 다양한 폼 요소들을 목적에 따라
-        그룹화하는데 사용하는 태그</p>
-    <p>또한, legend 태그로 그룹화한 폼들에 대해 이름을
-        지정할 수 있음</p>
-
-    <form method="post" action="login.do">
-        <fieldset>
-            <legend>로그인</legend>
-            <div><label for="uid4">아이디</label>
-                <input type="text" name="userid" id="uid4"></div>
-
-            <div><label for="pwd4">비밀번호</label>
-                <input type="password" name="passwd" id="pwd4"></div>
-        </fieldset>
-
-        <div><button type="submit">로그인</button></div>
-    </form>
-
-    <h2>다양한 input</h2>
-    <p>html5에서는 다양한 input요소 태그를 사용해서
-        사용자로부터 데이터를 입력받을 수 있음</p>
-    <ul>
-        <li>text : 한줄 텍스트를 입력받음</li>
-        <li>password : 한줄 비밀 텍스트를 입력받음,
+<img src="img/uri.png" width="75%">
+<img src="img/url.jpg" width="90%">
+<h2>전송데이터 유형</h2>
+<p>enctype 속성으로 전송 데이터의 유형을 지정할 수 있음</p>
+<p>텍스트 데이터 전송시 enctype은 생략가능</p>
+<p>텍스트와 바이너리 데이터 전송시 multipart/form-data로 설정</p>
+<h2>데이터 처리 주체(handler) 지정</h2>
+<p>action속성에는 전송된 데이터들을 서버의 어떤 프로그램이
+    맡아 처리할 것인지 지정</p>
+<form method="post" action="login.do">
+    <div><label for="uid3">아이디</label>
+        <input type="text" name="userid" id="uid3"></div>
+    <div><label for="pwd3">비밀번호</label>
+        <input type="password" name="passwd" id="pwd3"></div>
+    <div><button type="submit">로그인</button></div>
+</form>
+<h2>폼 요소 그룹화 태그</h2>
+<p>fieldset 태그는 폼을 구성하는 다양한 폼 요소들을
+    목적에 따라 그룹화하는 데 사용</p>
+<p>또한, legend 태그로 그룹화한 폼들에 대해 이름을
+    지정할 수 있음</p>
+<form method="post" action="login.do">
+    <fieldset>
+        <legend>로그인</legend>
+        <div><label for="uid4">아이디</label>
+            <input type="text" name="userid" id="uid4"></div>
+        <div><label for="pwd4">비밀번호</label>
+            <input type="password" name="passwd" id="pwd4"></div>
+    </fieldset>
+    <div><button type="submit">로그인</button></div>
+</form>
+<h2>다양한 input 태그</h2>
+<p>html5에서는 다양한 input요소 태그를 사용해서
+    사용자로부터 데이터를 입력받을 수 있음</p>
+<ul>
+    <li>text : 한줄 텍스트를 입력받음</li>
+    <li>password : 한줄 비밀 텍스트를 입력받음,
         입력시 별표문자가 화면에 표시</li>
-        <li>radio : 여러 선택사항 중 하나만 입력받음</li>
-        <li>checkbox : 여러 선택사항 중 다수를 입력받음</li>
-        <li>select : 여러 선택사항 중 하나만 입력받음,
+    <li>radio : 여러 선택사항 중 하나만 입력받음</li>
+    <li>checkbox : 여러 선택사항 중 다수를 입력받음</li>
+    <li>select : 여러 선택사항 중 하나만 입력받음,
         단, 선택할 수 있는 사항은 드롭다운 메뉴로 보여짐</li>
-        <li>textarea : 여러 줄 텍스트를 입력받음</li>
-        <li>button : 사용자가 클릭할 수 있는 버튼을 표시,
-        type속성으로 버튼의 종류를 지정함.</li>
-        <li>button은 일반적인 버튼을 표시, 보통 자바스크립트와 함께 사용</li>
-        <li>submit은 입력한 데이터들을 서버로 전송시 사용
+    <li>textarea : 여러 줄 텍스트를 입력받음</li>
+    <li>button : 사용자가 클릭할 수 있는 버튼을 표시,
+        type속성으로 버튼의 종류를 지정함.
+        button은 일반적인 버튼을 표시, 보통 자바스크립트와 함께 사용
+        submit은 입력한 데이터들을 서버로 전송시 사용
         reset은 입력한 데이터들을 모두 지우고 초기화할 때 사용</li>
-        <li>file : 텍스트가 아닌 파일을 서버로 전송할때 사용,</li>
+    <li>file : 텍스트가 아닌 파일을 서버로 전송할때 사용,
         단, enctype이 multipart/form-data로 설정되어야 함
         또한, 서버측에서는 텍스트만 처리하는 방식이 아닌
         다른 방식으로 처리해야 함</li>
-        <li>label : 폼 요소에 제목을 작성할때 사용</li>
-    </ul>
-
+    <li>label : 폼 요소에 제목을 작성할때 사용</li>
+</ul>
 <form>
     <fieldset>
-        <legend>개인 정보 입력</legend>
-        <div><label for="name">이름 : </label>
+        <legend>개인정보 입력</legend>
+        <div><label for="name">이름</label>
             <input type="text" name="name" id="name"></div>
-
-        <div><label for="jumin">주민번호 : </label>
+        <div><label for="jumin">주민번호</label>
             <input type="text" name="jumin" id="jumin"></div>
-
-        <div><label for="uid5">아이디 : </label>
+        <div><label for="uid5">아이디</label>
             <input type="text" name="uid5" id="uid5"></div>
-
-        <div><label for="pwd5">패스워드 : </label>
+        <div><label for="pwd5">비밀번호</label>
             <input type="password" name="pwd5" id="pwd5"></div>
 
-        <div><label for="gender1">성별 : </label>
-            남 </label> <input type="radio" name="gender" id="gender1" value="male">
-            여 </label> <input type="radio" name="gender" id="gender2" value="femle">
+        <div><label></label></div>
+        <div></div>
+        <div><label for="gender1">성별</label>
+            남 <input type="radio" name="gender" id="gender1" value="male">
+            여 <input type="radio" name="gender" id="gender2" value="female">
         </div>
 
-        <div><label for="hobby1">관심사 : </label>
-            연예</label> <input type="checkbox" name="hobby" id="hobby1" value="love">
-            스포츠</label> <input type="checkbox" name="hobby" id="hobby2" value="sport">
-            IT</label> <input type="checkbox" name="hobby" id="hobby3" value="it">
+        <div><label for="hobby1">관심사</label>
+            연예 <input type="checkbox" name="hobby" id="hobby1" value="love">
+            스포츠 <input type="checkbox" name="hobby" id="hobby2" value="sport">
+            IT <input type="checkbox" name="hobby" id="hobby3" value="it"></div>
     </fieldset>
+
     <fieldset>
         <legend>추가정보</legend>
-        <div><label>이메일</label>
-            <input type="text" name="emaill" id="emaill">
-            @<select name="emaill2" id="emaill2">
+        <div><label for="email1">이메일</label>
+            <input type="text" name="email1" id="email1">
+            @<select name="email2">
                 <option>-- 선택하세요 --</option>
                 <option>naver.com</option>
                 <option>google.com</option>
                 <option>hotmail.com</option>
                 <option>daum.net</option>
             </select></div>
-        <div><label>주소</label>
-            <select name="addr" id="addr" >
+        <div><label for="sido">주소</label>
+            <select name="sido" id="sido">
                 <option>-- 선택하세요 --</option>
                 <option>서울</option>
                 <option>경기</option>
                 <option>인천</option>
                 <option>대전</option>
-                <select name="gugun2" id="gugun2">
-                    <option>-- 선택하세요 --</option>
-                    <option>강남구</option>
-                    <option>종로구</option>
-                    <option>구로구</option>
-                    <option>분당구</option>
+            </select>
+            <select name="gugun" id="gugun">
+                <option>-- 선택하세요 --</option>
+                <option>강남구</option>
+                <option>종로구</option>
+                <option>구로구</option>
+                <option>분당구</option>
+            </select>
             <select name="dong" id="dong">
                 <option>-- 선택하세요 --</option>
                 <option>논현동</option>
-                <option>신사동</option>
-                <option>구로동</option>
-                <option>수대1동</option></div>
+                <option>인사동</option>
+                <option>구로1동</option>
+                <option>수내1동</option>
+            </select>
+        </div>
 
-        <div><label>가입인사</label>
-            <textarea name="ntro" id=intro
-            cols="45" rows="5"></textarea></div>
+        <div><label for="intro">가입인사</label>
+            <textarea name="intro" id="intro"
+                      cols="45" rows="5"></textarea></div>
 
         <div><label for="icon">아이콘</label>
-        <input type="file" name="icom" id="icon"></div>
+            <input type="file" name="icon" id="icon"></div>
 
-        <div><label for="icon">자동가입방지</label>
-            <img src="img/captcha"></div>
-
+        <div><label>자동가입방지</label>
+            <img src="img/captcha.png"></div>
     </fieldset>
-        </div>
-        <div>
-            <button type="submit">전송하기</button>
-            <button type="reset">다시입력</button>
-        </div>
 
-    </form>
+    <div>
+        <button type="submit">전송하기</button>
+        <button type="reset">다시입력</button>
+    </div>
 
-    <h2>공통 input 속성</h2>
-    <p>value : 폼 요소에 기본값 지정</p>
-    <p>readonly : 폼 요소에 입력한 값을 수정하지 못하게 막음</p>
-    <p>disabled : 폼 요소가 서버로 전송되지 못하게 막음</p>
-    <p>placeholder : 폼 요소내에 레이블을 표시할 수 있게 해줌</p>
-    <p>size, maxlength : 폼 요소의 너비와 입력가능 최대 글자수를 지정</p>
-    <p>required : 폼 요소에 값을 반드시 입력해야 하는지 여부 지정</p>
+</form>
 
-    <form>
-        <div>주민번호
-            <input type="text" name="jumin"
-            value="123456-1234567" readonly></div>
+<h2>공통 input 속성</h2>
+<p>value : 폼 요소에 기본값 지정</p>
+<p>readonly : 폼 요소에 입력한 값을 수정하지 못하게 막음</p>
+<p>disabled : 폼 요소가 서버로 전송되지 못하게 막음</p>
+<p>placeholder : 폼 요소내에 레이블을 표시할 수 있게 해 줌</p>
+<p>size, maxlength : 폼 요소의 너비와 입력가능 최대 글자수를 지정</p>
+<p>required : 폼 요소에 값을 반드시 입력해야 하는지 여부 지정</p>
 
-        <div>주민번호
-            <input type="text" name="jumin"
-            value="123456-1234567" disabled></div>
-        <div>
-            <button type="reset">다시입력</button></div>
+<form>
+    <div>주민번호
+        <input type="text" name="jumin1"
+               value="123456-1234567" readonly></div>
+    <div>주민번호
+        <input type="text" name="jumin2"
+               value="123456-1234567" disabled></div>
+    <div><input type="text" name="jumin3"
+                placeholder="주민번호" required></div>
 
-       <div>주민번호
-            <input type="text" name="jumin"
-             placeholder="주민번호" required></div>
+    <div>아이디 <input type="text" name="uid6"
+                    maxlength="18" required></div>
 
-        <div>아이디 <input type="text" naam="uid6"
-                        maxlength="18" required></div>
+    <div>우편번호 <input type="text" name="zip1"
+                     maxlength="3" size="1"> -
+        <input type="text" name="zip2"
+               maxlength="3" size="1"></div>
 
-        <div>우편번호 <input type="text" naam="zipl"
-                         maxlength="3" size="2"> -
-            <input type="text" naam="zipl"
-                   maxlength="3" size="2" required></div>
-
-    </form>
-
-
+    <div>
+        <button type="submit">전송하기</button></div>
+</form>
 
 </body>
 </html>
