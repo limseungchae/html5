@@ -16,7 +16,34 @@
   </ul>
   <hr>
 </nav>
-<main></main>
+<main>
+  <h2>새글쓰기</h2>
+  <form name="write">
+    <table>
+      <tr><th><label for="title">제목</label></th>
+        <td><input type="text" name="title"
+                    id="title"></td></tr>
+      <tr><th><label for="title">작성자</label></th>
+        <td><input type="text" name="title"
+                   id="title"></td></tr>
+      <tr><th><label for="contents">본문</label></th>
+        <td><textarea name="contents" id="contents"
+                   rows="7"></textarea> </td>
+      <input type="text" name="uid" id="uid"
+                      value="zzzyzzzy" readonly></tr>
+
+
+
+      <tr><td colspan="2">
+        <button type="button"
+                onclick="location.href='write.html'">새글쓰기</button>
+        <button type="button">입력완료</button>
+        <button type="button">다시입력</button>
+      </td></tr>
+    </table>
+
+  </form>
+</main>
 <footer>
   <hr>
   <div>copyright &copy; 2023. zzyzzy. All Rights Reserved.</div>
