@@ -5,7 +5,9 @@
   <title>write</title>
 </head>
 <body>
-<header><h1>JSP 프로젝트 v1</h1></header>
+<header>
+  <h1>JSP 프로젝트 v1</h1>
+</header>
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -14,39 +16,38 @@
     <li><a href="list.html">게시판</a></li>
     <li><a href="myinfo.html">회원정보</a></li>
   </ul>
-  <hr>
 </nav>
+<hr>
 <main>
   <h2>새글쓰기</h2>
   <form name="write">
     <table>
-      <tr><th><label for="title">제목</label></th>
-        <td><input type="text" name="title"
-                    id="title"></td></tr>
-      <tr><th><label for="title">작성자</label></th>
-        <td><input type="text" name="title"
-                   id="title"></td></tr>
-      <tr><th><label for="contents">본문</label></th>
-        <td><textarea name="contents" id="contents"
-                   rows="7"></textarea> </td>
-      <input type="text" name="uid" id="uid"
-                      value="zzzyzzzy" readonly></tr>
-
-
-
-      <tr><td colspan="2">
-        <button type="button"
-                onclick="location.href='write.html'">새글쓰기</button>
-        <button type="button">입력완료</button>
-        <button type="button">다시입력</button>
-      </td></tr>
+      <tr>
+        <th><label for="title">제   목</label></th>
+        <td><input type="text" name="title" id="title" size="70px"></td>
+      </tr>
+      <tr>
+        <th><label for="uid">작성자</label></th>
+        <td><input type="text" name="uid" id="uid" value="zzyzzy" size="10px" readonly></td>
+      </tr>
+      <tr>
+        <th><label for="contents">본   문</label></th>
+        <td>
+          <textarea name="contents" id="contents" rows="7" cols="55"></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="button">입력완료</button>
+          <button type="button">다시입력</button>
+        </td>
+      </tr>
     </table>
 
   </form>
 </main>
+<hr>
 <footer>
-  <hr>
-  <div>copyright &copy; 2023. zzyzzy. All Rights Reserved.</div>
+  copyright ⓒ 2014. 2017. siestageek. All Right Reserved.
 </footer>
 </body>
 </html>
